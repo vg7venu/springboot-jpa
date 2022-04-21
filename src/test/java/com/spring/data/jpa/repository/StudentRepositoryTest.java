@@ -71,9 +71,4 @@ public class StudentRepositoryTest {
         // System.out.println("\n\n\n" + a);
     }
 
-    @Test
-    void shouldCreateCourse() {
-        Course course = Course.builder().credit(2).title("how to jpa").build();
-
-    }
 }
