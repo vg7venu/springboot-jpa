@@ -10,24 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class CourseRepositoryTest {
-
+public class TeacherRepositoryTest {
     @Autowired
-    private CourseRepository courseRepository;
+    private TeacherRepository teacherRepository;
 
     @Test
-    void shouldGetAllCourses() {
-        List<Course> coursesList = courseRepository.findAll();
-        System.out.println(coursesList);
-    }
-
-    @Test
-    void shouldCreateCourseWithTeacher() {
+    void shouldCreateATeacher() {
+        Course a = Course.builder().credit(3).title("new ").build();
+        Course b = Course.builder().credit(5).title("new new").build();
         Teacher teacher = Teacher.builder()
+                // .courseList(List.of(a, b))
                 .email("new@teacher.com").name("hai new")
                 .build();
-        Course a = Course.builder().credit(3).title("new ").teacher(teacher).build();
-        courseRepository.save(a);
+        teacherRepository.save(teacher);
+
     }
 
 }

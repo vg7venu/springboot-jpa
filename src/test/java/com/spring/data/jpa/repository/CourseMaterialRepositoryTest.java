@@ -25,4 +25,15 @@ public class CourseMaterialRepositoryTest {
     void fetchLazy() {
         System.out.println(repo.findById((long) 2));
     }
+
+    @Test
+    void shouldCreateCourseMaterialWithoutCourse() {
+        Course course = Course.builder().credit(2).title("will this course saves").build();
+
+        CourseMaterial courseMaterial = CourseMaterial.builder()
+                // .course(course)
+                .url("www.willitwork.com").build();
+
+        repo.save(courseMaterial);
+    }
 }
